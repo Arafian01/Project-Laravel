@@ -35,7 +35,7 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-dropdown-link :href="route('dashboard')">
+                                <x-dropdown-link :href="route('konsumen.index')">
                                     {{ __('Konsumen') }}
                                 </x-dropdown-link>
 
