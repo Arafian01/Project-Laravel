@@ -65,6 +65,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div>
+                            {{ $konsumen->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

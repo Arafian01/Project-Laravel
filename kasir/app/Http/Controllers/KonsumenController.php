@@ -12,7 +12,7 @@ class KonsumenController extends Controller
      */
     public function index()
     {
-        $konsumen = Konsumen::all();
+        $konsumen = Konsumen::paginate(5);
         return view('page.konsumen.index')->with([
             'konsumen' => $konsumen
         ]);
