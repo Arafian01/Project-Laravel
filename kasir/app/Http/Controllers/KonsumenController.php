@@ -11,7 +11,7 @@ class KonsumenController extends Controller
      */
     public function index()
     {
-        //
+        return view ('page.konsumen.index');
     }
 
     /**
