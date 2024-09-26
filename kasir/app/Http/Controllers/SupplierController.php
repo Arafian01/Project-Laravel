@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\supplier;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
@@ -11,7 +12,10 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+        $supplier = supplier::all();
+        return view('page.supplier.index')->with([
+            'supplier' => $supplier
+        ]);
     }
 
     /**
@@ -27,7 +31,15 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'supplier' => $request->input('supplier'),
+            'no_hp' => $request->input('no_hp'),
+            'alamat' => $request->input('alamat'),
+        ];
+
+        supplier::create($data);
+
+        return back()->with('message_delete', 'Data supplier Sudah dihapus');
     }
 
     /**
@@ -51,7 +63,15 @@ class SupplierController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = [
+            'supplier' => $request->input('supplier'),
+            'no_hp' => $request->input('no_hp'),
+            'alamat' => $request->input('alamat'),
+        ];
+
+        $datas = supplier::findOrFail($id);
+        $datas->update($data);
+        return back()->with('message_delete', 'Data supplier Sudah dihapus');
     }
 
     /**
@@ -59,6 +79,8 @@ class SupplierController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = supplier::findOrFail($id);
+        $data->delete();
+        return back()->with('message_delete','Data Supplier Sudah dihapus');
     }
 }
