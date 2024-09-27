@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KonsumenController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,6 +10,7 @@ Route::get('/', function () {
 });
 
 Route::resource('konsumen', KonsumenController::class)->middleware('auth');
+Route::resource('supplier', SupplierController::class)->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
