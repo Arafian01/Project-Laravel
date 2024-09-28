@@ -39,7 +39,7 @@
                                     {{ __('Konsumen') }}
                                 </x-dropdown-link>
     
-                                <x-dropdown-link :href="route('dashboard')">
+                                <x-dropdown-link :href="route('produk.index')">
                                     {{ __('Produk') }}
                                 </x-dropdown-link>
     

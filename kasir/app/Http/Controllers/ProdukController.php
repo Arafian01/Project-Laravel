@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
@@ -11,7 +12,10 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        //
+        $produk = Produk::all();
+        return view('page.produk.index')->with([
+            'produk' => $produk
+        ]);
     }
 
     /**
@@ -27,7 +31,16 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'id_kosinyasi' => $request->input('id_konsinyasi'),
+            'produk' => $request->input('produk'),
+            'harga' => $request->input('harga'),
+            'stok' => $request->input('stok'),
+        ];
+
+        Produk::create($data);
+
+        return back()->with('message_delete', 'Data Produk Sudah dihapus');
     }
 
     /**
@@ -51,7 +64,16 @@ class ProdukController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = [
+            'id_kosinyasi' => $request->input('id_konsinyasi'),
+            'produk' => $request->input('produk'),
+            'harga' => $request->input('harga'),
+            'stok' => $request->input('stok'),
+        ];
+
+        $datas = Produk::findOrFail($id);
+        $datas->update($data);
+        return back()->with('message_delete', 'Data Produk Sudah dihapus');
     }
 
     /**
@@ -59,6 +81,8 @@ class ProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Produk::findOrFail($id);
+        $data->delete();
+        return back()->with('message_delete','Data Produk Sudah dihapus');
     }
 }
