@@ -65,13 +65,13 @@
                                             {{ $p->stok }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            <button type="button" data-id="{{ $s->id }}"
-                                                data-modal-target="sourceModalEdit" data-supplier="{{ $s->supplier }}"
-                                                data-no_hp="{{ $s->no_hp }}" data-alamat="{{ $s->alamat }}" onclick="editSourceModal(this)"
+                                            <button type="button" data-id="{{ $p->id }}"
+                                                data-modal-target="sourceModalEdit" data-id_konsinyasi="{{ $p->id_konsinyasi }}"
+                                                data-produk="{{ $p->produk }}" data-harga="{{ $p->harga }}" data-stok="{{ $p->stok }}" onclick="editSourceModal(this)"
                                                 class="bg-amber-500 hover:bg-amber-600 px-3 py-1 rounded-md text-xs text-white">
                                                 Edit
                                             </button>
-                                            <button onclick="return supplierDelete('{{$s->id}}','{{$s->supplier}}')" class="bg-red-500 hover:bg-bg-red-300 px-3 py-1 rounded-md text-xs text-white">Delete</button>
+                                            <button onclick="return ProdukDelete('{{$p->id}}','{{$p->produk}}')" class="bg-red-500 hover:bg-bg-red-300 px-3 py-1 rounded-md text-xs text-white">Delete</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -99,23 +99,30 @@
                     @csrf
                     <div class="flex flex-col p-4 space-y-6">
                         <div class="mb-5">
-                            <label for="supplier"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Supplier</label>
-                            <input type="text" id="supplier" name="supplier"
+                            <label for="id_konsinyasi"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Konsinyasi</label>
+                            <input type="text" id="id_konsinyasi" name="id_konsinyasi"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required />
                         </div>
                         <div class="mb-5">
-                            <label for="no_hp"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NO HP</label>
-                            <input type="text" id="no_hp" name="no_hp"
+                            <label for="produk"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
+                            <input type="text" id="produk" name="produk"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required />
                         </div>
                         <div class="mb-5">
-                            <label for="alamat"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                            <input type="text" id="alamat" name="alamat"
+                            <label for="harga"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
+                            <input type="text" id="harga" name="harga"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required />
+                        </div>
+                        <div class="mb-5">
+                            <label for="stok"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stok</label>
+                            <input type="text" id="stok" name="stok"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required />
                         </div>
@@ -136,7 +143,7 @@
             <div class="w-full md:w-1/2 relative bg-white rounded-lg shadow mx-5">
                 <div class="flex items-start justify-between p-4 border-b rounded-t">
                     <h3 class="text-xl font-semibold text-gray-900" id="title_source">
-                        Update Konsumen
+                        Update Produk
                     </h3>
                     <button type="button" onclick="sourceModalClose()"
                         class="text-black bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center">
@@ -147,7 +154,7 @@
                     @csrf
                     <div class="flex flex-col p-4 space-y-6">
                         <div class="mb-5">
-                            <label for="supplier_edit"
+                            <label for="produk_edit"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Supplier</label>
                             <input type="text" id="supplier_edit" name="supplier"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
