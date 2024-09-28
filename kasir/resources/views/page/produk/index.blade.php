@@ -154,23 +154,30 @@
                     @csrf
                     <div class="flex flex-col p-4 space-y-6">
                         <div class="mb-5">
+                            <label for="id_konsinyasi_edit"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Konsinyasi</label>
+                            <input type="text" id="id_konsinyasi_edit" name="id_konsinyasi"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required />
+                        </div>
+                        <div class="mb-5">
                             <label for="produk_edit"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Supplier</label>
-                            <input type="text" id="supplier_edit" name="supplier"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
+                            <input type="text" id="produk_edit" name="produk"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required />
                         </div>
                         <div class="mb-5">
-                            <label for="no_hp_edit"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NO HP</label>
-                            <input type="text" id="no_hp_edit" name="no_hp"
+                            <label for="harga_edit"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
+                            <input type="text" id="harga_edit" name="harga"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required />
                         </div>
                         <div class="mb-5">
-                            <label for="alamat_edit"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
-                            <input type="text" id="alamat_edit" name="alamat"
+                            <label for="stok_edit"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stok</label>
+                            <input type="text" id="stok_edit" name="stok"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required />
                         </div>
@@ -191,7 +198,7 @@
             const modal = document.getElementById('sourceModal');
 
             // Set form action URL
-            let url = "{{ route('supplier.store') }}";
+            let url = "{{ route('produk.store') }}";
             document.getElementById('title_source').innerText = "Add Jurusan";
             formModal.setAttribute('action', url);
 
@@ -213,18 +220,20 @@
             const formModal = document.getElementById('formSourceModalEdit');
             const modalTarget = button.dataset.modalTarget;
             const id = button.dataset.id;
-            const supplier = button.dataset.supplier;
-            const no_hp = button.dataset.no_hp;
-            const alamat = button.dataset.alamat;
+            const id_konsinyasi = button.dataset.id_konsinyasi;
+            const produk = button.dataset.produk;
+            const harga = button.dataset.harga;
+            const stok = button.dataset.stok;
 
-            let url = "{{ route('supplier.update', ':id') }}".replace(':id', id);
+            let url = "{{ route('produk.update', ':id') }}".replace(':id', id);
 
             console.log(url);
-            document.getElementById('title_source').innerText = `Update Supplier ${supplier}`;
+            document.getElementById('title_source').innerText = `Update Produk ${produk}`;
 
-            document.getElementById('supplier_edit').value = supplier;
-            document.getElementById('no_hp_edit').value = no_hp;
-            document.getElementById('alamat_edit').value = alamat;
+            document.getElementById('id_konsinyasi_edit').value = id_konsinyasi;
+            document.getElementById('produk_edit').value = produk;
+            document.getElementById('harga_edit').value = harga;
+            document.getElementById('stok_edit').value = stok;
 
             formModal.setAttribute('action', url);
 
@@ -253,9 +262,9 @@
         }
 
         const supplierDelete = async (id, supplier) => {
-            let tanya = confirm(`Apakah anda yakin untuk menghapus Supplier ${supplier} ?`);
+            let tanya = confirm(`Apakah anda yakin untuk menghapus produk ${produk} ?`);
             if (tanya) {
-                await axios.post(`/supplier/${id}`, {
+                await axios.post(`/produk/${id}`, {
                         '_method': 'DELETE',
                         '_token': $('meta[name="csrf-token"]').attr('content')
                     })
