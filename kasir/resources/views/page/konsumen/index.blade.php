@@ -166,7 +166,7 @@
 
             // Set form action URL
             let url = "{{ route('konsumen.store') }}";
-            document.getElementById('title_source').innerText = "Add Jurusan";
+            document.getElementById('title_source').innerText = "Add Konsumen";
             formModal.setAttribute('action', url);
 
             // Display the modal

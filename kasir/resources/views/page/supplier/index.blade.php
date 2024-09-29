@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('KONSUMEN') }}
+            {{ __('SUPPLIER') }}
         </h2>
     </x-slot>
 
@@ -130,7 +130,7 @@
             <div class="w-full md:w-1/2 relative bg-white rounded-lg shadow mx-5">
                 <div class="flex items-start justify-between p-4 border-b rounded-t">
                     <h3 class="text-xl font-semibold text-gray-900" id="title_source">
-                        Update Konsumen
+                        Update Supplier
                     </h3>
                     <button type="button" onclick="sourceModalClose()"
                         class="text-black bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center">
@@ -179,7 +179,7 @@
 
             // Set form action URL
             let url = "{{ route('supplier.store') }}";
-            document.getElementById('title_source').innerText = "Add Jurusan";
+            document.getElementById('title_source').innerText = "Add Supplier";
             formModal.setAttribute('action', url);
 
             // Display the modal
