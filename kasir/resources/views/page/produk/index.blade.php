@@ -261,7 +261,7 @@
             document.getElementById('sourceModal').classList.add('hidden');
         }
 
-        const supplierDelete = async (id, supplier) => {
+        const ProdukDelete = async (id, produk) => {
             let tanya = confirm(`Apakah anda yakin untuk menghapus produk ${produk} ?`);
             if (tanya) {
                 await axios.post(`/produk/${id}`, {
