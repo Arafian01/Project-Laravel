@@ -15,7 +15,49 @@
                             class="bg-sky-600 p-2 hover:bg-sky-400 text-white rounded-xl">Add</a>
                     </div>
                 </div>
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+                <div class="p-6 text-gray-900 dark:text-gray-100 flex gap-5">
+                    <div class="w-full bg-gray-100 p-4 rounded-xl">
+                        <div class="mb-5">
+                            INPUT DATA PRODUK
+                        </div>
+                        <form action="{{ route('produk.store')}}" method="POST">
+                            @csrf
+                                <div class="mb-5">
+                                    <label for="id_konsinyasi"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Konsinyasi</label>
+                                    <input type="text" id="id_konsinyasi" name="id_konsinyasi"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        required />
+                                </div>
+                                <div class="mb-5">
+                                    <label for="produk"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
+                                    <input type="text" id="produk" name="produk"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        required />
+                                </div>
+                                <div class="mb-5">
+                                    <label for="harga"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
+                                    <input type="text" id="harga" name="harga"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        required />
+                                </div>
+                                <div class="mb-5">
+                                    <label for="stok"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stok</label>
+                                    <input type="text" id="stok" name="stok"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        required />
+                                </div>
+                            <div class="flex items-center p-4 space-x-2 border-t border-gray-200 rounded-b">
+                                <button type="submit" id="formSourceButton"
+                                    class="bg-green-400 m-2 w-40 h-10 rounded-xl hover:bg-green-500">Simpan</button>
+                                <button type="button" onclick="sourceModalClose()"
+                                    class="bg-red-500 m-2 w-40 h-10 rounded-xl text-white hover:shadow-lg hover:bg-red-600">Batal</button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead
@@ -82,7 +124,7 @@
             </div>
         </div>
     </div>
-    <div class="fixed inset-0 flex items-center justify-center z-50 hidden" id="sourceModal">
+    {{-- <div class="fixed inset-0 flex items-center justify-center z-50 hidden" id="sourceModal">
         <div class="fixed inset-0 bg-black opacity-50" onclick="sourceModalClose()"></div>
         <div class="fixed inset-0 flex items-center justify-center">
             <div class="w-full md:w-1/2 relative bg-white rounded-lg shadow mx-5">
@@ -95,48 +137,10 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-                <form method="POST" id="formSourceModal">
-                    @csrf
-                    <div class="flex flex-col p-4 space-y-6">
-                        <div class="mb-5">
-                            <label for="id_konsinyasi"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Konsinyasi</label>
-                            <input type="text" id="id_konsinyasi" name="id_konsinyasi"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required />
-                        </div>
-                        <div class="mb-5">
-                            <label for="produk"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
-                            <input type="text" id="produk" name="produk"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required />
-                        </div>
-                        <div class="mb-5">
-                            <label for="harga"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga</label>
-                            <input type="text" id="harga" name="harga"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required />
-                        </div>
-                        <div class="mb-5">
-                            <label for="stok"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stok</label>
-                            <input type="text" id="stok" name="stok"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required />
-                        </div>
-                    </div>
-                    <div class="flex items-center p-4 space-x-2 border-t border-gray-200 rounded-b">
-                        <button type="submit" id="formSourceButton"
-                            class="bg-green-400 m-2 w-40 h-10 rounded-xl hover:bg-green-500">Simpan</button>
-                        <button type="button" onclick="sourceModalClose()"
-                            class="bg-red-500 m-2 w-40 h-10 rounded-xl text-white hover:shadow-lg hover:bg-red-600">Batal</button>
-                    </div>
-                </form>
+                
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="fixed inset-0 flex items-center justify-center z-50 hidden" id="sourceModalEdit">
         <div class="fixed inset-0 bg-black opacity-50" onclick="sourceModalClose()"></div>
         <div class="fixed inset-0 flex items-center justify-center">
