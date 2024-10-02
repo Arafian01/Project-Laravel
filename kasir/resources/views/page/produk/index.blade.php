@@ -8,12 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-4 flex items-center justify-between">
+                <div class="p-4 ">
                     <div>DATA PRODUK</div>
-                    <div>
-                        <a href="#" onclick="return functionAdd()"
-                            class="bg-sky-600 p-2 hover:bg-sky-400 text-white rounded-xl">Add</a>
-                    </div>
                 </div>
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex gap-5">
                     <div class="w-full bg-gray-100 p-4 rounded-xl">
@@ -58,68 +54,71 @@
                             </div>
                         </form>
                     </div>
-                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3">
-                                        NO
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        ID KONSINYASI
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        PRODUK
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        HARGA
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        STOK
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $no = 1;
-                                @endphp
-                                @foreach ($produk as $p)
-                                    <tr
-                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $no++ }}
+                    <div class="w-full">
+                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <thead
+                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">
+                                            NO
                                         </th>
-                                        <td class="px-6 py-4">
-                                            {{ $p->id_konsinyasi }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $p->produk }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $p->harga }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $p->stok }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <button type="button" data-id="{{ $p->id }}"
-                                                data-modal-target="sourceModalEdit" data-id_konsinyasi="{{ $p->id_konsinyasi }}"
-                                                data-produk="{{ $p->produk }}" data-harga="{{ $p->harga }}" data-stok="{{ $p->stok }}" onclick="editSourceModal(this)"
-                                                class="bg-amber-500 hover:bg-amber-600 px-3 py-1 rounded-md text-xs text-white">
-                                                Edit
-                                            </button>
-                                            <button onclick="return ProdukDelete('{{$p->id}}','{{$p->produk}}')" class="bg-red-500 hover:bg-bg-red-300 px-3 py-1 rounded-md text-xs text-white">Delete</button>
-                                        </td>
+                                        <th scope="col" class="px-6 py-3">
+                                            ID KONSINYASI
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            PRODUK
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            HARGA
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            STOK
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+    
+                                        </th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($produk as $p)
+                                        <tr
+                                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                {{ $no++ }}
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                {{ $p->id_konsinyasi }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $p->produk }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $p->harga }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $p->stok }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <button type="button" data-id="{{ $p->id }}"
+                                                    data-modal-target="sourceModalEdit" data-id_konsinyasi="{{ $p->id_konsinyasi }}"
+                                                    data-produk="{{ $p->produk }}" data-harga="{{ $p->harga }}" data-stok="{{ $p->stok }}" onclick="editSourceModal(this)"
+                                                    class="bg-amber-500 hover:bg-amber-600 px-3 py-1 rounded-md text-xs text-white">
+                                                    Edit
+                                                </button>
+                                                <button onclick="return ProdukDelete('{{$p->id}}','{{$p->produk}}')" class="bg-red-500 hover:bg-bg-red-300 px-3 py-1 rounded-md text-xs text-white">Delete</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
