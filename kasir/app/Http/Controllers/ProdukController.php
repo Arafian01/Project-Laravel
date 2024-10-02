@@ -12,7 +12,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $produk = Produk::all();
+        $produk = Produk::paginate(5);
         return view('page.produk.index')->with([
             'produk' => $produk
         ]);
