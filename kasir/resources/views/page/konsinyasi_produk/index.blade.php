@@ -190,7 +190,7 @@
         let url = "{{ route('konsinyasi_produk.update', ':id') }}".replace(':id', id);
 
         let status = document.getElementById(modalTarget);
-        document.getElementById('title_source').innerText = `UPDATE KONSINYASI_PRODUK ${konsinyasi_produk}`;
+        document.getElementById('title_source').innerText = `UPDATE KONSINYASI_PRODUK ${id_konsinyasi}`;
 
         document.getElementById('id_konsinyasi').value = id_konsinyasi;
         document.getElementById('id_produk').value = id_produk;
@@ -219,8 +219,8 @@
         status.classList.toggle('hidden');
     }
 
-    const konsinyasi_produkDelete = async (id, konsinyasi_produk) => {
-        let tanya = confirm(`Apakah anda yakin untuk menghapus Konsinyasi Produk ${Konsinyasi_produk} ?`);
+    const konsinyasi_produkDelete = async (id, id_produk) => {
+        let tanya = confirm(`Apakah anda yakin untuk menghapus Konsinyasi Produk ${id_produk} ?`);
         if (tanya) {
             await axios.post(`/konsinyasi_produk/${id}`, {
                     '_method': 'DELETE',
