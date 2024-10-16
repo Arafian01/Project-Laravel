@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
+use App\Models\paket;
 use Illuminate\Http\Request;
 
-class ProdukController extends Controller
+class PaketController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $produk = Produk::paginate(5);
-        return view('page.produk.index')->with([
-            'produk' => $produk
+        $paket = paket::paginate(5);
+        return view('page.paket.index')->with([
+            'paket' => $paket
         ]);
     }
 
@@ -32,14 +32,14 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'produk' => $request->input('produk'),
-            'harga' => $request->input('harga'),
-            'stok' => $request->input('stok'),
+            'id_outlet' => $request->input('id_outlet'),
+            'jenis' => $request->input('jenis'),
+            'nama_paket' => $request->input('nama_paket'),
         ];
 
-        Produk::create($data);
+        paket::create($data);
 
-        return back()->with('message_delete', 'Data Produk Sudah dihapus');
+        return back()->with('message_delete', 'Data Paket Sudah dihapus');
     }
 
     /**
@@ -64,14 +64,14 @@ class ProdukController extends Controller
     public function update(Request $request, string $id)
     {
         $data = [
-            'produk' => $request->input('produk'),
-            'harga' => $request->input('harga'),
-            'stok' => $request->input('stok'),
+            'id_outlet' => $request->input('id_outlet'),
+            'jenis' => $request->input('jenis'),
+            'nama_paket' => $request->input('nama_paket'),
         ];
 
-        $datas = Produk::findOrFail($id);
+        $datas = paket::findOrFail($id);
         $datas->update($data);
-        return back()->with('message_delete', 'Data Produk Sudah dihapus');
+        return back()->with('message_delete', 'Data Paket Sudah dihapus');
     }
 
     /**
@@ -79,8 +79,8 @@ class ProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        $data = Produk::findOrFail($id);
+        $data = paket::findOrFail($id);
         $data->delete();
-        return back()->with('message_delete','Data Produk Sudah dihapus');
+        return back()->with('message_delete','Data paket Sudah dihapus');
     }
 }

@@ -19,18 +19,40 @@
                         </div>
                         <form action="{{ route('konsinyasi_produk.store') }}" method="post">
                             @csrf
-                            <div class="mb-5">
+                            {{-- <div class="mb-5">
                                 <label for="base-input"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id
                                     Konsinyasi</label>
                                 <input name="id_konsinyasi" type="text" id="base-input"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
+                            </div> --}}
                             <div class="mb-5">
+                                <label for="id_konsinyasi"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Konsinyasi</label>
+                                <select class="js-example-placeholder-single js-states form-control w-full m-6"
+                                    name="id_konsinyasi" data-placeholder="Pilih Konsinyasi">
+                                    <option value="">Pilih...</option>
+                                    @foreach ($konsinyasi as $k)
+                                        <option value="{{ $k->id }}">{{ $k->konsinyasi }}</option>                                        
+                                    @endforeach
+                                </select>
+                            </div>
+                            {{-- <div class="mb-5">
                                 <label for="base-input"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Produk</label>
                                 <input name="id_produk" type="text" id="base-input"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div> --}}
+                            <div class="mb-5">
+                                <label for="id_produk"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
+                                <select class="js-example-placeholder-single js-states form-control w-full m-6"
+                                    name="id_produk" data-placeholder="Pilih Produk">
+                                    <option value="">Pilih...</option>
+                                    @foreach ($produk as $p)
+                                        <option value="{{ $p->id }}">{{ $p->produk }}</option>                                        
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-5">
                                 <label for="base-input"

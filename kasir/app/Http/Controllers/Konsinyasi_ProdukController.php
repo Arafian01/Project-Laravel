@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Konsinyasi;
 use App\Models\Konsinyasi_Produk;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class Konsinyasi_ProdukController extends Controller
@@ -13,8 +15,12 @@ class Konsinyasi_ProdukController extends Controller
     public function index()
     {
         $konsinyasi_produk = Konsinyasi_Produk::paginate(5);
+        $konsinyasi = Konsinyasi::all();
+        $produk = Produk::all();
         return view('page.konsinyasi_produk.index')->with([
-            'konsinyasi_produk' => $konsinyasi_produk
+            'konsinyasi_produk' => $konsinyasi_produk,
+            'konsinyasi' => $konsinyasi,
+            'produk' => $produk
         ]);
     }
 
