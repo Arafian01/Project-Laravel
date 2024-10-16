@@ -39,8 +39,8 @@
                                     {{ __('Member') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link :href="route('dashboard')">
-                                    {{ __('Produk') }}
+                                <x-dropdown-link :href="route('outlet.index')">
+                                    {{ __('Outlet') }}
                                 </x-dropdown-link>
 
                                 <x-dropdown-link :href="route('dashboard')">
