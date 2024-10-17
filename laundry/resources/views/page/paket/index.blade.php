@@ -19,12 +19,23 @@
                         </div>
                         <form action="{{ route('paket.store') }}" method="post">
                             @csrf
-                            <div class="mb-5">
+                            {{-- <div class="mb-5">
                                 <label for="base-input"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Outlet</label>
                                 <input name="id_outlet" type="number" id="base-input"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Masukan Id Outlet disini...">
+                            </div> --}}
+                            <div class="mb-5">
+                                <label for="id_outlet"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Outlet</label>
+                                <select class="js-example-placeholder-single js-states form-control w-full m-6"
+                                    name="id_outlet" data-placeholder="Pilih Konsinyasi">
+                                    <option value="">Pilih...</option>
+                                    @foreach ($outlet as $o)
+                                        <option value="{{ $o->id }}">{{ $o->nama }}</option>                                        
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-5">
                                 <label for="base-input"
@@ -165,18 +176,19 @@
     const editSourceModal = (button) => {
         const formModal = document.getElementById('formSourceModal');
         const modalTarget = button.dataset.modalTarget;
+        const id = button.dataset.id;
         const id_outlet = button.dataset.id_outlet;
-        const nama_paket = button.dataset.nama_paket;
         const jenis = button.dataset.jenis;
         const nama_paket = button.dataset.nama_paket;
+
         let url = "{{ route('paket.update', ':id') }}".replace(':id', id);
 
         let status = document.getElementById(modalTarget);
         document.getElementById('title_source').innerText = `UPDATE PAKET ${nama_paket}`;
 
+        document.getElementById('id_outlet').value = id_outlet;
         document.getElementById('nama_paket').value = nama_paket;
         document.getElementById('jenis').value = jenis;
-        document.getElementById('nama_paket').value = nama_paket;
 
         document.getElementById('formSourceButton').innerText = 'Simpan';
         document.getElementById('formSourceModal').setAttribute('action', url);

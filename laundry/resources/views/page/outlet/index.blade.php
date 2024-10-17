@@ -156,8 +156,7 @@
 
         document.getElementById('nama').value = nama;
         document.getElementById('alamat').value = alamat;
-        document.getElementById('jenis_kelamin').value = jenis_kelamin;
-
+            
         document.getElementById('formSourceButton').innerText = 'Simpan';
         document.getElementById('formSourceModal').setAttribute('action', url);
         let csrfToken = document.createElement('input');

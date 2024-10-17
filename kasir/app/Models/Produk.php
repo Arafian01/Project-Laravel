@@ -16,4 +16,8 @@ class Produk extends Model
     ];
 
     protected $table = 'produk';
+
+    public function konsinyasiProduk(){
+        return $this->hasMany(Konsinyasi_Produk::class, 'id_produk');
+    }
 }

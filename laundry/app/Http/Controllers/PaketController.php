@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Outlet;
 use App\Models\paket;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,10 @@ class PaketController extends Controller
     public function index()
     {
         $paket = paket::paginate(5);
+        $outlet = Outlet::all();
         return view('page.paket.index')->with([
-            'paket' => $paket
+            'paket' => $paket,
+            'outlet' => $outlet
         ]);
     }
 

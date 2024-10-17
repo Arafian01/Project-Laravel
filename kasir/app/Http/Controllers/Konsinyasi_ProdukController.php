@@ -38,8 +38,8 @@ class Konsinyasi_ProdukController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'id_konsinyasi' => $request->input('id_konsinyasi'),
-            'id_produk' => $request->input('id_produk'),
+            'id_konsinyasi' => $request->input('id_konsinyasi_edit'),
+            'id_produk' => $request->input('id_produk_edit'),
             'stok' => $request->input('stok'),
             'tgl_konsinyasi' => $request->input('tgl_konsinyasi')
         ];
