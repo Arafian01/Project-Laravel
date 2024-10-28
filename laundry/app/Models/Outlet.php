@@ -15,4 +15,10 @@ class Outlet extends Model
     ];
 
     protected $table = 'outlet';
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
 }
