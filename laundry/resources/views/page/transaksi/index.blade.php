@@ -9,15 +9,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-4 items-ce">
-                    <div>DATA PAKET</div>
+                    <div>DATA TRANSAKSI</div>
                 </div>
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex gap-5">
                     {{-- FORM ADD --}}
                     <div class="w-full bg-gray-100 p-4 rounded-xl">
                         <div class="mb-5">
-                            INPUT DATA PAKET
+                            INPUT DATA TRANSAKSI
                         </div>
-                        <form action="{{ route('paket.store') }}" method="post">
+                        <form action="{{ route('transaksi.store') }}" method="post">
                             @csrf
                             {{-- <div class="mb-5">
                                 <label for="base-input"
@@ -38,6 +38,38 @@
                                 </select>
                             </div>
                             <div class="mb-5">
+                                <label for="kode_invoice"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Invoice</label>
+                                <input name="kode_invoice" type="text" id="kode_invoice"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Nama transaksi disini...">
+                            </div>
+                            <div class="mb-5">
+                                <label for="member"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Member</label>
+                                <select class="js-example-placeholder-single js-states form-control w-full m-6"
+                                    name="member" data-placeholder="Pilih Member">
+                                    <option value="">Pilih...</option>
+                                    @foreach ($member as $m)
+                                        <option value="{{ $m->id }}">{{ $m->nama }}</option>                                        
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-5">
+                                <label for="tanggal"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal</label>
+                                <input name="tanggal" type="date" id="tanggal"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Nama transaksi disini...">
+                            </div>
+                            <div class="mb-5">
+                                <label for="tanggal"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal</label>
+                                <input name="tanggal" type="date" id="tanggal"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Nama transaksi disini...">
+                            </div>
+                            <div class="mb-5">
                                 <label for="base-input"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis</label>
                                 <input name="jenis" type="text" id="base-input"
@@ -46,10 +78,10 @@
                             </div>
                             <div class="mb-5">
                                 <label for="base-input"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Paket</label>
-                                <input name="nama_paket" type="text" id="base-input"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama transaksi</label>
+                                <input name="nama_transaksi" type="text" id="base-input"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Masukan Nama Paket disini...">
+                                    placeholder="Masukan Nama transaksi disini...">
                             </div>
                             <button type="submit"
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
@@ -72,7 +104,7 @@
                                             JENIS
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            NAMA PAKET
+                                            NAMA transaksi
                                         </th>
                                         <th scope="col" class="px-6 py-3">
 
@@ -83,12 +115,12 @@
                                     @php
                                         $no = 1;
                                     @endphp
-                                    @foreach ($paket as $key => $p)
+                                    @foreach ($transaksi as $key => $p)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                {{ $paket->perPage() * ($paket->currentPage() - 1) + $key + 1 }}
+                                                {{ $transaksi->perPage() * ($transaksi->currentPage() - 1) + $key + 1 }}
                                             </th>
                                             <td class="px-6 py-4">
                                                 {{ $p->Outlet->nama }}
@@ -97,19 +129,19 @@
                                                 {{ $p->jenis }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $p->nama_paket }}
+                                                {{ $p->nama_transaksi }}
                                             </td>
                                             <td class="px-6 py-4">
                                                 <button type="button" data-id="{{ $p->id }}"
                                                     data-modal-target="sourceModal"
                                                     data-id_outlet="{{ $p->id_outlet }}"
                                                     data-jenis="{{ $p->jenis }}" 
-                                                    data-nama_paket="{{ $p->nama_paket }}" onclick="editSourceModal(this)"
+                                                    data-nama_transaksi="{{ $p->nama_transaksi }}" onclick="editSourceModal(this)"
                                                     class="bg-amber-500 hover:bg-amber-600 px-3 py-1 rounded-md text-xs text-white">
                                                     Edit
                                                 </button>
                                                 <button
-                                                    onclick="return paketDelete('{{ $p->id }}','{{ $p->outlet->nama }}')"
+                                                    onclick="return transaksiDelete('{{ $p->id }}','{{ $p->outlet->nama }}')"
                                                     class="bg-red-500 hover:bg-bg-red-300 px-3 py-1 rounded-md text-xs text-white">Delete</button>
                                             </td>
                                         </tr>
@@ -118,7 +150,7 @@
                             </table>
                         </div>
                         <div class="mt-4">
-                            {{ $paket->links() }}
+                            {{ $transaksi->links() }}
                         </div>
                     </div>
                 </div>
@@ -160,10 +192,10 @@
                                 placeholder="Masukan Jenis disini...">
                         </div>
                         <div class="">
-                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Nama Paket</label>
-                            <input type="text" id="nama_paket" name="nama_paket"
+                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Nama transaksi</label>
+                            <input type="text" id="nama_transaksi" name="nama_transaksi"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Masukan Nama Paket disini...">
+                                placeholder="Masukan Nama transaksi disini...">
                         </div>
                     </div>
                     <div class="flex items-center p-4 space-x-2 border-t border-gray-200 rounded-b">
@@ -184,12 +216,12 @@
         const id = button.dataset.id;
         const id_outlet = button.dataset.id_outlet;
         const jenis = button.dataset.jenis;
-        const nama_paket = button.dataset.nama_paket;
+        const nama_transaksi = button.dataset.nama_transaksi;
 
-        let url = "{{ route('paket.update', ':id') }}".replace(':id', id);
+        let url = "{{ route('transaksi.update', ':id') }}".replace(':id', id);
 
         let status = document.getElementById(modalTarget);
-        document.getElementById('title_source').innerText = `UPDATE PAKET ${nama_paket}`;
+        document.getElementById('title_source').innerText = `UPDATE transaksi ${nama_transaksi}`;
 
         // document.getElementById('id_outlet').value = id_outlet;
         let event = new Event('change');
@@ -197,7 +229,7 @@
         document.querySelector('[name="id_outlet_edit"]').value = id_outlet;
         document.querySelector('[name="id_outlet_edit"]').dispatchEvent(event);
 
-        document.getElementById('nama_paket').value = nama_paket;
+        document.getElementById('nama_transaksi').value = nama_transaksi;
         document.getElementById('jenis').value = jenis;
 
         document.getElementById('formSourceButton').innerText = 'Simpan';
@@ -222,10 +254,10 @@
         status.classList.toggle('hidden');
     }
 
-    const paketDelete = async (id, outlet) => {
-        let tanya = confirm(`Apakah anda yakin untuk menghapus PAKET ${outlet} ?`);
+    const transaksiDelete = async (id, outlet) => {
+        let tanya = confirm(`Apakah anda yakin untuk menghapus transaksi ${outlet} ?`);
         if (tanya) {
-            await axios.post(`/paket/${id}`, {
+            await axios.post(`/transaksi/${id}`, {
                     '_method': 'DELETE',
                     '_token': $('meta[name="csrf-token"]').attr('content')
                 })

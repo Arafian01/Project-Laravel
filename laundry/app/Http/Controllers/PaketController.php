@@ -67,7 +67,7 @@ class PaketController extends Controller
     public function update(Request $request, string $id)
     {
         $data = [
-            'id_outlet' => $request->input('id_outlet'),
+            'id_outlet' => $request->input('id_outlet_edit'),
             'jenis' => $request->input('jenis'),
             'nama_paket' => $request->input('nama_paket'),
         ];
