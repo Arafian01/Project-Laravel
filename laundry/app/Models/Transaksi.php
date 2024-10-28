@@ -25,4 +25,14 @@ class Transaksi extends Model
     ];
 
     protected $table = 'transaksi';
+
+    public function outlet(){
+        return $this->belongsTo(Outlet::class, 'id_outlet', 'id');
+    }
+    public function member(){
+        return $this->belongsTo(Outlet::class, 'id_member', 'id');
+    }
+    public function user(){
+        return $this->belongsTo(Outlet::class, 'id_user', 'id');
+    }
 }

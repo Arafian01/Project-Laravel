@@ -23,4 +23,7 @@ class Outlet extends Model
     public function paket(){
         return $this->hasMany(Paket::class, 'id');
     }
+    public function transaksi(){
+        return $this->hasMany(Transaksi::class, 'id');
+    }
 }

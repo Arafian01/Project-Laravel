@@ -47,8 +47,8 @@
                                     {{ __('Paket') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link :href="route('dashboard')">
-                                    {{ __('Konsinyasi') }}
+                                <x-dropdown-link :href="route('transaksi.index')">
+                                    {{ __('Transaksi') }}
                                 </x-dropdown-link>
 
                                 <x-dropdown-link :href="route('dashboard')">

@@ -28,18 +28,20 @@
                             </div> --}}
                             <div class="mb-5">
                                 <label for="id_outlet"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Outlet</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id
+                                    Outlet</label>
                                 <select class="js-example-placeholder-single js-states form-control w-full m-6"
                                     name="id_outlet" data-placeholder="Pilih Konsinyasi">
                                     <option value="">Pilih...</option>
                                     @foreach ($outlet as $o)
-                                        <option value="{{ $o->id }}">{{ $o->nama }}</option>                                        
+                                        <option value="{{ $o->id }}">{{ $o->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="mb-5">
                                 <label for="kode_invoice"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Invoice</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode
+                                    Invoice</label>
                                 <input name="kode_invoice" type="text" id="kode_invoice"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Masukan Nama transaksi disini...">
@@ -51,7 +53,7 @@
                                     name="member" data-placeholder="Pilih Member">
                                     <option value="">Pilih...</option>
                                     @foreach ($member as $m)
-                                        <option value="{{ $m->id }}">{{ $m->nama }}</option>                                        
+                                        <option value="{{ $m->id }}">{{ $m->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -63,25 +65,67 @@
                                     placeholder="Masukan Nama transaksi disini...">
                             </div>
                             <div class="mb-5">
-                                <label for="tanggal"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal</label>
-                                <input name="tanggal" type="date" id="tanggal"
+                                <label for="batas_waktu"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas
+                                    Waktu</label>
+                                <input name="batas_waktu" type="datetime" id="batas_waktu"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Masukan Nama transaksi disini...">
                             </div>
                             <div class="mb-5">
-                                <label for="base-input"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis</label>
-                                <input name="jenis" type="text" id="base-input"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Masukan Jenis disini...">
-                            </div>
-                            <div class="mb-5">
-                                <label for="base-input"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama transaksi</label>
-                                <input name="nama_transaksi" type="text" id="base-input"
+                                <label for="tgl_bayar"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal
+                                    Bayar</label>
+                                <input name="tgl_bayar" type="datetime" id="tgl_bayar"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Masukan Nama transaksi disini...">
+                            </div>
+                            <div class="mb-5">
+                                <label for="biaya_tambahan"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Biaya
+                                    Tambahan</label>
+                                <input name="biaya_tambahan" type="number" id="biaya_tambahan"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Nama transaksi disini...">
+                            </div>
+                            <div class="mb-5">
+                                <label for="diskon"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Diskon</label>
+                                <input name="diskon" type="number" id="diskon"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Nama transaksi disini...">
+                            </div>
+                            <div class="mb-5">
+                                <label for="pajak"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pajak</label>
+                                <input name="pajak" type="number" id="pajak"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Nama transaksi disini...">
+                            </div>
+                            <div class="mb-5">
+                                <label for="status"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                                <input name="status" type="text" id="status"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Nama transaksi disini...">
+                            </div>
+                            <div class="mb-5">
+                                <label for="dibayar"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">dibayar</label>
+                                <input name="dibayar" type="text" id="dibayar"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Nama transaksi disini...">
+                            </div>
+                            <div class="mb-5">
+                                <label for="id_user"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User</label>
+                                <select class="js-example-placeholder-single js-states form-control w-full m-6"
+                                    name="id_user" data-placeholder="Pilih id_user">
+                                    <option value="">Pilih...</option>
+                                    @foreach ($user as $u)
+                                        <option value="{{ $u->id }}">{{ $u->nama }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <button type="submit"
                                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIMPAN</button>
@@ -98,13 +142,40 @@
                                             NO
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            ID OUTLET
+                                            OUTLET
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            JENIS
+                                            Kode Invoice
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            NAMA transaksi
+                                            Member
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Tanggal
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Batas Waktu
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Tanggal Bayar
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Biaya Tambahan
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Diskon
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Pajak
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Status
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Dibayar
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            User
                                         </th>
                                         <th scope="col" class="px-6 py-3">
 
@@ -115,7 +186,7 @@
                                     @php
                                         $no = 1;
                                     @endphp
-                                    @foreach ($transaksi as $key => $p)
+                                    @foreach ($transaksi as $key => $t)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
@@ -123,25 +194,66 @@
                                                 {{ $transaksi->perPage() * ($transaksi->currentPage() - 1) + $key + 1 }}
                                             </th>
                                             <td class="px-6 py-4">
-                                                {{ $p->Outlet->nama }}
+                                                {{ $t->Outlet->nama }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $p->jenis }}
+                                                {{ $t->kode_invoice }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $p->nama_transaksi }}
+                                                {{ $t->member->nama }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                <button type="button" data-id="{{ $p->id }}"
+                                                {{ $t->tanggal }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $t->batas_waktu }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $t->tgl_bayar }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $t->biaya_tambahan }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $t->diskon }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $t->pajak }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $t->status }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $t->dibayar }}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{ $t->user->nama }}
+                                            </td>
+                                            <td class="px-6 py-4">
+
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <button type="button" data-id="{{ $t->id }}"
                                                     data-modal-target="sourceModal"
-                                                    data-id_outlet="{{ $p->id_outlet }}"
-                                                    data-jenis="{{ $p->jenis }}" 
-                                                    data-nama_transaksi="{{ $p->nama_transaksi }}" onclick="editSourceModal(this)"
+                                                    data-id_outlet="{{ $t->id_outlet }}"
+                                                    data-kode_invoice="{{ $t->kode_invoice }}"
+                                                    data-id_member="{{ $t->id_member }}"
+                                                    data-tanggal="{{ $t->tanggal }}"
+                                                    data-batas_waktu="{{ $t->batas_waktu }}"
+                                                    data-tgl_bayar="{{ $t->tgl_bayar }}"
+                                                    data-biaya_tambahan="{{ $t->biaya_tambahan }}"
+                                                    data-diskon="{{ $t->diskon }}"
+                                                    data-pajak="{{ $t->pajak }}"
+                                                    data-status="{{ $t->status }}"
+                                                    data-dibayar="{{ $t->dibayar }}"
+                                                    data-id_user="{{ $t->id_user }}"
+                                                    data-nama_transaksi="{{ $t->nama_transaksi }}"
+                                                    onclick="editSourceModal(this)"
                                                     class="bg-amber-500 hover:bg-amber-600 px-3 py-1 rounded-md text-xs text-white">
                                                     Edit
                                                 </button>
                                                 <button
-                                                    onclick="return transaksiDelete('{{ $p->id }}','{{ $p->outlet->nama }}')"
+                                                    onclick="return transaksiDelete('{{ $t->id }}','{{ $t->outlet->nama }}')"
                                                     class="bg-red-500 hover:bg-bg-red-300 px-3 py-1 rounded-md text-xs text-white">Delete</button>
                                             </td>
                                         </tr>
@@ -174,7 +286,107 @@
                 <form method="POST" id="formSourceModal">
                     @csrf
                     <div class="flex flex-col  p-4 space-y-6">
-                        <div class="">
+                        <div class="mb-5">
+                            <label for="id_outlet"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Outlet</label>
+                            <select class="js-example-placeholder-single js-states form-control w-full m-6"
+                                name="id_outlet" data-placeholder="Pilih Konsinyasi">
+                                <option value="">Pilih...</option>
+                                @foreach ($outlet as $o)
+                                    <option value="{{ $o->id }}">{{ $o->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-5">
+                            <label for="kode_invoice"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode
+                                Invoice</label>
+                            <input name="kode_invoice" type="text" id="kode_invoice"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama transaksi disini...">
+                        </div>
+                        <div class="mb-5">
+                            <label for="member"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Member</label>
+                            <select class="js-example-placeholder-single js-states form-control w-full m-6"
+                                name="member" data-placeholder="Pilih Member">
+                                <option value="">Pilih...</option>
+                                @foreach ($member as $m)
+                                    <option value="{{ $m->id }}">{{ $m->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-5">
+                            <label for="tanggal"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal</label>
+                            <input name="tanggal" type="date" id="tanggal"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama transaksi disini...">
+                        </div>
+                        <div class="mb-5">
+                            <label for="batas_waktu"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Batas
+                                Waktu</label>
+                            <input name="batas_waktu" type="datetime" id="batas_waktu"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama transaksi disini...">
+                        </div>
+                        <div class="mb-5">
+                            <label for="tgl_bayar"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal
+                                Bayar</label>
+                            <input name="tgl_bayar" type="datetime" id="tgl_bayar"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama transaksi disini...">
+                        </div>
+                        <div class="mb-5">
+                            <label for="biaya_tambahan"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Biaya
+                                Tambahan</label>
+                            <input name="biaya_tambahan" type="number" id="biaya_tambahan"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama transaksi disini...">
+                        </div>
+                        <div class="mb-5">
+                            <label for="diskon"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Diskon</label>
+                            <input name="diskon" type="number" id="diskon"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama transaksi disini...">
+                        </div>
+                        <div class="mb-5">
+                            <label for="pajak"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pajak</label>
+                            <input name="pajak" type="number" id="pajak"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama transaksi disini...">
+                        </div>
+                        <div class="mb-5">
+                            <label for="status"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                            <input name="status" type="text" id="status"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama transaksi disini...">
+                        </div>
+                        <div class="mb-5">
+                            <label for="dibayar"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">dibayar</label>
+                            <input name="dibayar" type="text" id="dibayar"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama transaksi disini...">
+                        </div>
+                        <div class="mb-5">
+                            <label for="id_user"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User</label>
+                            <select class="js-example-placeholder-single js-states form-control w-full m-6"
+                                name="id_user" data-placeholder="Pilih id_user">
+                                <option value="">Pilih...</option>
+                                @foreach ($user as $u)
+                                    <option value="{{ $u->id }}">{{ $u->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        {{-- <div class="">
                             <label for="id_outlet_edit"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Outlet</label>
                             <select class="js-example-placeholder-single js-states form-control w-full m-6"
@@ -196,7 +408,7 @@
                             <input type="text" id="nama_transaksi" name="nama_transaksi"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Masukan Nama transaksi disini...">
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="flex items-center p-4 space-x-2 border-t border-gray-200 rounded-b">
                         <button type="submit" id="formSourceButton"
@@ -215,8 +427,17 @@
         const modalTarget = button.dataset.modalTarget;
         const id = button.dataset.id;
         const id_outlet = button.dataset.id_outlet;
-        const jenis = button.dataset.jenis;
-        const nama_transaksi = button.dataset.nama_transaksi;
+        const kode_invoice = button.dataset.kode_invoice;
+        const id_member = button.dataset.id_member;
+        const tanggal = button.dataset.tanggal;
+        const batas_waktu = button.dataset.batas_waktu;
+        const tgl_bayar = button.dataset.tgl_bayar;
+        const biaya_tambahan = button.dataset.biaya_tambahan;
+        const diskon = button.dataset.diskon;
+        const pajak = button.dataset.pajak;
+        const status = button.dataset.status;
+        const dibayar = button.dataset.dibayar;
+        const id_user = button.dataset.id_user;
 
         let url = "{{ route('transaksi.update', ':id') }}".replace(':id', id);
 
@@ -228,9 +449,20 @@
 
         document.querySelector('[name="id_outlet_edit"]').value = id_outlet;
         document.querySelector('[name="id_outlet_edit"]').dispatchEvent(event);
+        document.querySelector('[name="id_member"]').value = id_member;
+        document.querySelector('[name="id_member"]').dispatchEvent(event);
+        document.querySelector('[name="id_user"]').value = id_user;
+        document.querySelector('[name="id_user"]').dispatchEvent(event);
 
-        document.getElementById('nama_transaksi').value = nama_transaksi;
-        document.getElementById('jenis').value = jenis;
+        document.getElementById('kode_invoice').value = kode_invoice;
+        document.getElementById('tanggal').value = tanggal;
+        document.getElementById('batas_waktu').value = batas_waktu;
+        document.getElementById('tgl_bayar').value = tgl_bayar;
+        document.getElementById('biaya_tambahan').value = biaya_tambahan;
+        document.getElementById('diskon').value = diskon;
+        document.getElementById('pajak').value = pajak;
+        document.getElementById('status').value = status;
+        document.getElementById('dibayar').value = dibayar;
 
         document.getElementById('formSourceButton').innerText = 'Simpan';
         document.getElementById('formSourceModal').setAttribute('action', url);
