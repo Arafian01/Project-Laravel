@@ -112,7 +112,7 @@
                                                 {{ $k->konsinyasi->konsinyasi }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $k->produk->produk }}
+                                                {{ $k->produk->harga }}
                                             </td>
                                             <td class="px-6 py-4">
                                                 {{ $k->stok }}

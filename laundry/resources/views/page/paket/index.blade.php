@@ -83,7 +83,7 @@
                                     @php
                                         $no = 1;
                                     @endphp
-                                    @foreach ($paket as $key => $k)
+                                    @foreach ($paket as $key => $p)
                                         <tr
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th scope="row"
@@ -91,25 +91,25 @@
                                                 {{ $paket->perPage() * ($paket->currentPage() - 1) + $key + 1 }}
                                             </th>
                                             <td class="px-6 py-4">
-                                                {{ $k->id_outlet }}
+                                                {{ $p->Outlet->nama }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $k->jenis }}
+                                                {{ $p->jenis }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                {{ $k->nama_paket }}
+                                                {{ $p->nama_paket }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                <button type="button" data-id="{{ $k->id }}"
+                                                <button type="button" data-id="{{ $p->id }}"
                                                     data-modal-target="sourceModal"
-                                                    data-id_outlet="{{ $k->id_outlet }}"
-                                                    data-jenis="{{ $k->jenis }}" 
-                                                    data-nama_paket="{{ $k->nama_paket }}" onclick="editSourceModal(this)"
+                                                    data-id_outlet="{{ $p->id_outlet }}"
+                                                    data-jenis="{{ $p->jenis }}" 
+                                                    data-nama_paket="{{ $p->nama_paket }}" onclick="editSourceModal(this)"
                                                     class="bg-amber-500 hover:bg-amber-600 px-3 py-1 rounded-md text-xs text-white">
                                                     Edit
                                                 </button>
                                                 <button
-                                                    onclick="return paketDelete('{{ $k->id }}','{{ $k->nama_paket }}')"
+                                                    onclick="return paketDelete('{{ $p->id }}','{{ $p->nama_paket }}')"
                                                     class="bg-red-500 hover:bg-bg-red-300 px-3 py-1 rounded-md text-xs text-white">Delete</button>
                                             </td>
                                         </tr>
