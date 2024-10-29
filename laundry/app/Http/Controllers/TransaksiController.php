@@ -19,7 +19,7 @@ class TransaksiController extends Controller
         $outlet = Outlet::all();
         $member = Member::all();
         $user = User::all();
-        return view('page.paket.index')->with([
+        return view('page.transaksi.index')->with([
             'transaksi' => $transaksi,
             'outlet' => $outlet,
             'member' => $member,

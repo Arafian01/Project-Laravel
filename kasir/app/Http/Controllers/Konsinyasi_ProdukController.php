@@ -84,37 +84,35 @@ class Konsinyasi_ProdukController extends Controller
     public function update(Request $request, string $id)
     {
         $data = [
-            'id_konsinyasi' => $request->input('id_konsinyasi'),
-            'id_produk' => $request->input('id_produk'),
+            'id_konsinyasi' => $request->input('id_konsinyasi_edit'),
+            'id_produk' => $request->input('id_produk_edit'),
             'stok' => $request->input('stok'),
             'tgl_konsinyasi' => $request->input('tgl_konsinyasi')
         ];
 
-        $id_produk = $request->input('id_produk');
+        $id_produk = $request->input('id_produk_edit');
         $stokKonsinyasiP = $request->input('stok');
 
         $produkKonsinyasi = Konsinyasi_Produk::where('id', $id)->first();
         $stokLama = $produkKonsinyasi->stok;
 
         if ($stokLama < $stokKonsinyasiP){
-            $stokUpdate = $stokKonsinyasiP + $stokLama;
+            $tambahStok = $stokKonsinyasiP - $stokLama;
+            $stokUpdate = $stokLama + $tambahStok;
         } else {
-            $stokUpdate = $stokLama - $stokKonsinyasiP;
+            $kurangiStok = $stokLama - $stokKonsinyasiP;
+            $stokUpdate = $stokLama - $kurangiStok;
         }
 
-
-        $produk = Produk::where('id', $id_produk)->first();
-        $stokProduk = $produk->stok;
         $dataProduk = [
-            'stok' => $stokProduk - $stokKonsinyasiP
+            'stok' => $stokUpdate
         ];
 
         $updateProduk = Produk::findOrFail($id_produk);
         $updateProduk->update($dataProduk); 
 
-
-        $datas = Konsinyasi_Produk::findOrFail($id);
-        $datas->update($data);
+        $konsinyasiProduk = Konsinyasi_Produk::findOrFail($id);
+        $konsinyasiProduk->update($data);
         return back()->with('message_delete', 'Data Konsumen Sudah dihapus');
     }
 
