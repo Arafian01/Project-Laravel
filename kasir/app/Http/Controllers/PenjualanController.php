@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Konsumen;
 use App\Models\Penjualan;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,10 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        //
+        $konsumen = Konsumen::all();
+        return view('page.penjualan.create')->with([
+            'konsumen' => $konsumen,
+        ]);
     }
 
     /**

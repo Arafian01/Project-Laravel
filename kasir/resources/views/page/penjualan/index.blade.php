@@ -7,8 +7,12 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div class="bg-red-500 p-4 rounded-xl mb-2 flex items-center justify-between">
+                        <div>Data Penjualan</div>
+                        <div><a href="{{ route('penjualan.create') }}" class="bg-sky-400 p-1">Tambah</a></div>
+                    </div>
                     <div class="relative overflow-x-auto">
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead
