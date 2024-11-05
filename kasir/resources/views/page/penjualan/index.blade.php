@@ -36,30 +36,34 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $no = 1;
+
+                                @endphp
                                 @foreach ($penjualan as $p)
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Apple MacBook Pro 17"
+                                            {{ $no++ }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            Silver
+                                            {{ $p->id_konsumen }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            Laptop
+                                            {{ $p->tgl_Penjualan }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            $2999
+                                            {{ $p->status_pembelian }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            $2999
+                                            
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-
+                    {{ $penjualan->links() }}
                 </div>
             </div>
         </div>
