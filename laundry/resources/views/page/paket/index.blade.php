@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Paket') }}
         </h2>
     </x-slot>
 
@@ -28,7 +28,7 @@
                             </div> --}}
                             <div class="mb-5">
                                 <label for="id_outlet"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Outlet</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Outlet</label>
                                 <select class="js-example-placeholder-single js-states form-control w-full m-6"
                                     name="id_outlet" data-placeholder="Pilih Konsinyasi">
                                     <option value="">Pilih...</option>
@@ -66,7 +66,7 @@
                                             NO
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            ID OUTLET
+                                            OUTLET
                                         </th>
                                         <th scope="col" class="px-6 py-3">
                                             JENIS
