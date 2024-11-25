@@ -25,9 +25,9 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        $konsumen = Konsumen::all();
+        $pembelian = Konsumen::all();
         return view('page.penjualan.create')->with([
-            'konsumen' => $konsumen,
+            'konsumen' => $pembelian,
         ]);
     }
 
