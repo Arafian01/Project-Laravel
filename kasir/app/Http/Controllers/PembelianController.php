@@ -14,9 +14,11 @@ class PembelianController extends Controller
      */
     public function index()
     {
-        $data = Pembelian::paginate(5);
+        $pembelian = Pembelian::paginate(5);
+        $supplier = Supplier::all();
         return view('page.pembelian.index')->with([
-            'pembelian' => $data
+            'pembelian' => $pembelian,
+            'supplier' => $supplier
         ]);
     }
 
@@ -25,9 +27,9 @@ class PembelianController extends Controller
      */
     public function create()
     {
-        $pembelian = Supplier::all();
+        $supplier = Supplier::all();
         return view('page.pembelian.create')->with([
-            'supplier' => $pembelian,
+            'supplier' => $supplier,
         ]);
     }
 

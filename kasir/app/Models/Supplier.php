@@ -16,4 +16,8 @@ class Supplier extends Model
     ];
 
     protected $table = 'supplier';
+
+    public function SupplierProduk(){
+        return $this->hasMany(Pembelian::class, 'id_supplier');
+    }
 }

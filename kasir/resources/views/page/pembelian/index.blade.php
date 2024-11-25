@@ -44,7 +44,7 @@
                                             {{ $no++ }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ $p->id_supplier }}
+                                            {{ $p->supplier->supplier }}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $p->tgl_pembelian }}
