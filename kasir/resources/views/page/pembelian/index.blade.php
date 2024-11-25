@@ -47,7 +47,7 @@
                                             {{ $p->id_supplier }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $p->tgl_Pembelian }}
+                                            {{ $p->tgl_pembelian }}
                                         </td>
                                         <td class="px-6 py-4">
                                             

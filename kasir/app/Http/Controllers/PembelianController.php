@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Konsumen;
 use App\Models\Pembelian;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,9 +25,9 @@ class PembelianController extends Controller
      */
     public function create()
     {
-        $pembelian = Konsumen::all();
+        $pembelian = Supplier::all();
         return view('page.pembelian.create')->with([
-            'konsumen' => $pembelian,
+            'supplier' => $pembelian,
         ]);
     }
 
