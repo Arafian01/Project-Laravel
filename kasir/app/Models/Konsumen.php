@@ -15,4 +15,8 @@ class Konsumen extends Model
     ];
 
     protected $table = 'konsumen';
+
+    public function KonsumenProduk(){
+        return $this->hasMany(Konsumen::class, 'id_konsumen');
+    }
 }

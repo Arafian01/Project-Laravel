@@ -47,7 +47,7 @@
                                             {{ $no++ }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ $p->id_konsumen }}
+                                            {{ $p->konsumen->konsumen }}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $p->tgl_Penjualan }}

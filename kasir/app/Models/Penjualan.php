@@ -18,4 +18,8 @@ class Penjualan extends Model
     ];
 
     protected $table = 'penjualan';
+
+    public function konsumen(){
+        return $this->belongsTo(Konsumen::class, 'id_konsumen', 'id');
+    }
 }
