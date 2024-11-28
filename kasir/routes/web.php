@@ -21,6 +21,8 @@ Route::resource('konsinyasi', KonsinyasiController::class)->middleware('auth');
 Route::resource('konsinyasi_produk', Konsinyasi_ProdukController::class)->middleware('auth');
 Route::resource('penjualan', PenjualanController::class)->middleware('auth');
 Route::resource('pembelian', PembelianController::class)->middleware('auth');
+Route::get('/produk/produk_name/{id}', [ProdukController::class, 'getProduk'])->middleware('auth');
+
 
 
 Route::get('/dashboard', function () {
