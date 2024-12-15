@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detail_Penjualan;
 use App\Models\Konsumen;
 use App\Models\Penjualan;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,9 +27,11 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        $pembelian = Konsumen::all();
+        $konsumen = Konsumen::all();
+        $produk = Produk::all();
         return view('page.penjualan.create')->with([
-            'konsumen' => $pembelian,
+            'konsumen' => $konsumen,
+            'produk' => $produk
         ]);
     }
 
@@ -36,7 +40,19 @@ class PenjualanController extends Controller
      */
     public function store(Request $request)
     {
+        
         $kode_penjualan = date('YmdHis');
+        $produk = $request->input('produk', []);
+       foreach ($produk as $index => $p) {
+            $dataDetail = [
+                'kode_penjualan' => $kode_penjualan,
+                'id_produk' => $p,
+                'qty' => $request ->qty[$index],
+                'total' => $request ->total_harga[$index],
+            ];
+            Detail_Penjualan::create($dataDetail);
+            
+        }
         $data = [
             'kode_penjualan' => $kode_penjualan,
             'tgl_penjualan' => $request->input('tgl_penjualan'),
@@ -46,7 +62,6 @@ class PenjualanController extends Controller
         ];
 
         Penjualan::create($data);
-
         return redirect()
             ->route('penjualan.index')
             ->with('message', 'Data sudah ditambahkan');

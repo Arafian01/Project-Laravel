@@ -47,9 +47,9 @@
                                     {{ __('Paket') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link :href="route('transaksi.index')">
+                                {{-- <x-dropdown-link :href="route('transaksi.index')">
                                     {{ __('Transaksi') }}
-                                </x-dropdown-link>
+                                </x-dropdown-link> --}}
                             </x-slot>
                         </x-dropdown>
                     </li>
@@ -73,11 +73,11 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-dropdown-link :href="route('dashboard')">
+                                <x-dropdown-link :href="route('pembelian.index')">
                                     {{ __('Pembelian') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link :href="route('dashboard')">
+                                <x-dropdown-link :href="route('penjualan.index')">
                                     {{ __('Penjualan') }}
                                 </x-dropdown-link>
                             </x-slot>
